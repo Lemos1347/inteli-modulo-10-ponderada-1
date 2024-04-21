@@ -1,0 +1,170 @@
+swagger: "2.0"
+info:
+  title: "Task Management API"
+  version: "1.0"
+  description: "API for managing tasks with user authentication and administrative control."
+host: "localhost:3001"
+schemes:
+  - "http"
+basePath: "/"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+
+paths:
+  /create_user:
+    post:
+      tags:
+        - "Admin"
+      summary: "Create a new user"
+      description: "Allows an admin to create a new user entry for task management."
+      security:
+        - Bearer: []
+      parameters:
+        - name: "user_name"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "user_name"
+            properties:
+              user_name:
+                type: "string"
+      responses:
+        "201":
+          description: "User created successfully"
+        "400":
+          description: "Invalid input or no user_name provided"
+        "401":
+          description: "Authentication error"
+  /create_task:
+    post:
+      tags:
+        - "Tasks"
+      summary: "Create a new task"
+      description: "Allows authenticated users to create a new task."
+      security:
+        - Bearer: []
+      parameters:
+        - name: "task"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "task"
+            properties:
+              task:
+                type: "string"
+      responses:
+        "201":
+          description: "Task created successfully"
+        "400":
+          description: "Invalid input"
+        "401":
+          description: "Authentication error"
+        "500":
+          description: "User not found"
+  /tasks:
+    get:
+      tags:
+        - "Tasks"
+      summary: "Retrieve all tasks for the authenticated user"
+      description: "Returns a list of all tasks associated with the authenticated user."
+      security:
+        - Bearer: []
+      responses:
+        "200":
+          description: "List of tasks"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Task"
+        "401":
+          description: "Authentication error"
+        "404":
+          description: "User not found"
+        "500":
+          description: "No tasks found"
+  /update_task:
+    put:
+      tags:
+        - "Tasks"
+      summary: "Update the status of a task"
+      description: "Allows a user to update the status of a specific task."
+      security:
+        - Bearer: []
+      parameters:
+        - name: "task_update"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "task_id"
+              - "status"
+            properties:
+              task_id:
+                type: "integer"
+              status:
+                type: "string"
+      responses:
+        "202":
+          description: "Task status updated successfully"
+        "400":
+          description: "Incomplete body"
+        "401":
+          description: "Authentication error"
+        "404":
+          description: "User not found"
+        "500":
+          description: "Task does not exist or user not found"
+  /delete_task:
+    delete:
+      tags:
+        - "Tasks"
+      summary: "Delete a task"
+      description: "Allows a user to delete a specific task."
+      security:
+        - Bearer: []
+      parameters:
+        - name: "task_id"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "task_id"
+            properties:
+              task_id:
+                type: "integer"
+      responses:
+        "203":
+          description: "Task deleted successfully"
+        "400":
+          description: "Incomplete body"
+        "401":
+          description: "Authentication error"
+        "404":
+          description: "User not found"
+        "500":
+          description: "Task does not exist or user not found"
+
+definitions:
+  Task:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      task:
+        type: "string"
+      status:
+        type: "string"
