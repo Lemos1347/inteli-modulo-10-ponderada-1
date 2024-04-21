@@ -6,12 +6,12 @@ from flask_swagger_ui import get_swaggerui_blueprint
 app = Flask(__name__)
 
 # Configuração do Swagger UI
-SWAGGER_URL = "/docs"  # URL para acessar a UI do Swagger - ajuste conforme necessário
-API_URL = "/static/swagger.yml"  # Caminho para o arquivo das especificações da API
+SWAGGER_URL = "/docs"
+API_URL = "/static/swagger.yml"
 SWAGGER_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
-    config={"app_name": "To-do API"},  # Configurações adicionais opcionais
+    config={"app_name": "To-do API"},
 )
 
 app.register_blueprint(SWAGGER_BLUEPRINT, url_prefix=SWAGGER_URL)
