@@ -25,7 +25,13 @@ Esta é uma API Flask desenvolvida para gerenciar tarefas com autenticação de 
 ## Instalação
 
 > [!NOTE]
-> Antes de iniciar, você precisará ter o Python instalado em sua máquina.
+> Antes de iniciar, você precisará ter o Python e Git instalado em sua máquina.
+
+Primeiro, clone este repositório e entre na pasta do projeto:
+
+```bash
+git clone https://github.com/Lemos1347/inteli-modulo-10-ponderada-1.git ; cd inteli-modulo-10-ponderada-1.git
+```
 
 Para rodar esta aplicação, você precisa instalar as dependências listadas no arquivo `requirements.txt`:
 
