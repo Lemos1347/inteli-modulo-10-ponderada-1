@@ -51,6 +51,8 @@ Acesse este link para interagir com a API através da interface Swagger, onde vo
 
 Você pode encontrar a documentação da API em OpenAPI (Swagger) no arquivo [swagger.yaml](./static/swagger.yml).
 
+Caso você prefira, você pode importar o arquivo [Insomnia_collection.json](./static/Insomnia_collection.json) no Insomnia para testar a API.
+
 ## Endpoints
 
 A API consiste nos seguintes endpoints:
