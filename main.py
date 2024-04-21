@@ -215,4 +215,4 @@ def delete_task_route():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3001, debug=True, threaded=False)
+    app.run(host="0.0.0.0", port=3001, threaded=False)
