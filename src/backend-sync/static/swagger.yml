@@ -28,21 +28,25 @@ paths:
       security:
         - Bearer: []
       parameters:
-        - name: "user_name"
-          in: "body"
+        - in: "body"
+          name: "body"
           required: true
           schema:
             type: "object"
             required:
               - "user_name"
+              - "user_role"
             properties:
               user_name:
                 type: "string"
+              user_role:
+                type: "string"
+                enum: ["admin", "user"]
       responses:
         "201":
           description: "User created successfully"
         "400":
-          description: "Invalid input or no user_name provided"
+          description: "Invalid input, uncompleted body, or incorrect JSON format"
         "401":
           description: "Authentication error"
   /create_task:
@@ -54,8 +58,8 @@ paths:
       security:
         - Bearer: []
       parameters:
-        - name: "task"
-          in: "body"
+        - in: "body"
+          name: "body"
           required: true
           schema:
             type: "object"
@@ -68,10 +72,10 @@ paths:
         "201":
           description: "Task created successfully"
         "400":
-          description: "Invalid input"
+          description: "Invalid input or incorrect JSON format"
         "401":
           description: "Authentication error"
-        "500":
+        "404":
           description: "User not found"
   /tasks:
     get:
@@ -92,8 +96,6 @@ paths:
           description: "Authentication error"
         "404":
           description: "User not found"
-        "500":
-          description: "No tasks found"
   /update_task:
     put:
       tags:
@@ -103,8 +105,8 @@ paths:
       security:
         - Bearer: []
       parameters:
-        - name: "task_update"
-          in: "body"
+        - in: "body"
+          name: "body"
           required: true
           schema:
             type: "object"
@@ -113,14 +115,15 @@ paths:
               - "status"
             properties:
               task_id:
-                type: "integer"
+                type: "string"
               status:
                 type: "string"
+                enum: ["pending", "done"]
       responses:
         "202":
           description: "Task status updated successfully"
         "400":
-          description: "Incomplete body"
+          description: "Incomplete body or incorrect JSON format"
         "401":
           description: "Authentication error"
         "404":
@@ -136,8 +139,8 @@ paths:
       security:
         - Bearer: []
       parameters:
-        - name: "task_id"
-          in: "body"
+        - in: "body"
+          name: "body"
           required: true
           schema:
             type: "object"
@@ -145,12 +148,12 @@ paths:
               - "task_id"
             properties:
               task_id:
-                type: "integer"
+                type: "string"
       responses:
         "203":
           description: "Task deleted successfully"
         "400":
-          description: "Incomplete body"
+          description: "Incomplete body or incorrect JSON format"
         "401":
           description: "Authentication error"
         "404":
@@ -164,7 +167,7 @@ definitions:
     properties:
       id:
         type: "integer"
-      task:
+      text:
         type: "string"
       status:
         type: "string"
