@@ -74,7 +74,7 @@ Caso você prefira, você pode importar o arquivo [Insomnia_collection.json](./s
 ## Endpoints
 
 > [!NOTE]
-> Caso você tenha rodado o docker-compose, já existe um usário cadastrado no banco de dados com o id: 03fd5486-2030-47cf-bf14-0e569d64fad9c com o role de 'admin'
+> Caso você tenha rodado o docker-compose, já existe um usário cadastrado no banco de dados com o id: 03fd5486-2030-47cf-bf14-0e569d64fad9 com o role de 'admin'
 
 A API consiste nos seguintes endpoints:
 
