@@ -53,7 +53,7 @@ DATABASE_URL={your_database_url}
 
 ## Executando a API
 
-Para iniciar a API, rode o seguinte comando na root desse repositório:
+Você pode [seguir as instruções já informadas](../../README.md/#como-rodar) para iniciar a API, ou rode o seguinte comando na root desse repositório:
 
 ```bash
 python main.py
@@ -81,7 +81,11 @@ A API consiste nos seguintes endpoints:
 - `POST /create_user`: Cria um novo usuário (acesso restrito a administradores).
 - `POST /create_task`: Permite a um usuário autenticado criar uma nova tarefa.
 - `GET /tasks`: Retorna todas as tarefas do usuário autenticado.
-- `PUT /update_task`: Atualiza o status de uma tarefa específica.
-- `DELETE /delete_task`: Remove uma tarefa específica.
+- `PUT /update_task`: Atualiza o status de uma tarefa específica do usuário autenticado.
+- `DELETE /delete_task`: Remove uma tarefa específica do usuário autenticado.
 
 Cada endpoint requer que o usuário esteja autenticado e passe o seu id no header 'Authorization'. Alguns endpoints exigem que o usuário seja um administrador (nesse caso, apenas `/create_user`).
+
+## Dockerização da API
+
+Foi produzido um Dockerfile para a API, que pode ser encontrado na pasta [build](./build). Nele é possível verificar que puxamos a imagem base `python:3.10.14 ` e copiamos os arquivos necessários para rodar a aplicação.
