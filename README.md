@@ -7,7 +7,7 @@ Esse repositório contém os códigos desenvolvidos para a atividade ponderada 1
 
 Todos os códigos podem ser encontrados na pasta [src](./src). A pasta do [backend](./src/backend-sync/) tem o seu próprio `README.md` detalhando a construção da API.
 
-_Obs1.: dentro da pasta [src](./src) há um [docker-compose.yml](./src/docker-compose.yml) que lançará os conteiners necessários para todas as partes, o único pré-requisito para rodá-lo é a necessidade de adicionar um arquivo `.env` dentro da pasta `src`. Após isso, basta apenas entrar na pasta `src` e rodar o comando: `docker-compose up --build`. As intruções de cada parte pode ser encontrada na sua respectiva pasta._
+_Obs1.: dentro da pasta [src](./src) há um [docker-compose.yml](./src/docker-compose.yml) que lançará os conteiners necessários para todas as partes (incluindo o banco de dados, o qual as suas tabelas podem ser encontradas em [/database](./src/database/)), o único pré-requisito para rodá-lo é a necessidade de adicionar um arquivo `.env` dentro da pasta `src`. Após isso, basta apenas entrar na pasta `src` e rodar o comando: `docker-compose up --build`. As intruções de cada parte pode ser encontrada na sua respectiva pasta._
 
 _Obs2.: consulte o [arquivo de documentação da API](./src/backend-sync/README.md) caso você não encontre qualquer arquivo que estava procurando (e.g.: openapi.yaml, insomnia.json, etc)._
 
