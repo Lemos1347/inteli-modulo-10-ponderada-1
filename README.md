@@ -22,10 +22,10 @@ Primeiro você deve clonar o repositório:
 git clone https://github.com/Lemos1347/inteli-modulo-10-ponderada-1.git
 ```
 
-Depois, entre na pasta `src`:
+Depois, entre na pasta `src` do projeto:
 
 ```bash
-cd src
+cd inteli-modulo-10-ponderada-1/src
 ```
 
 Crie um arquivo `.env` com as seguintes variáveis:
