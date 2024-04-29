@@ -44,6 +44,8 @@ Pronto! Agora você pode acessar o projeto em [http://localhost:3001/docs](http:
 
 ## Funcionamento
 
+https://github.com/Lemos1347/inteli-modulo-10-ponderada-1/assets/99190347/62431ae8-0c89-49b6-a99c-fa269ef0844e
+
 ## Conclusão
 
 Em resumo, as chamadas exibidas no vídeo destacam a rapidez de execução, uma vez que cada operação foi realizada individualmente. Se houvesse múltiplas chamadas ocorrendo ao mesmo tempo, a duração poderia dobrar para a segunda chamada, devido à falta de recursos assíncronos na API.
