@@ -19,6 +19,10 @@ Obrigatóriamente ela deve ser uma API de grau de maturidade 2, ou seja, ela dev
 
 Esta é uma API Flask desenvolvida para gerenciar tarefas com autenticação de usuários e controle de uma to-do list.
 
+## Funcionamento
+
+https://github.com/Lemos1347/inteli-modulo-10-ponderada-1/assets/99190347/f3aee92c-eb88-4ae3-8beb-c45fc76bff9e
+
 ## Instalação
 
 > [!NOTE]
