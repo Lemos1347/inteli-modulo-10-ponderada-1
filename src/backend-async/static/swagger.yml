@@ -3,7 +3,7 @@ info:
   title: "Task Management API"
   version: "1.0"
   description: "API for managing tasks with user authentication and administrative control."
-host: "localhost:3000"
+host: "localhost:3001"
 schemes:
   - "http"
 basePath: "/"

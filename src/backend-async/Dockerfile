@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Make port 3001 available to the world outside this container
-EXPOSE 3000
+EXPOSE 3001
 
 # Run main.py when the container launches
 CMD ["python3", "main.py"]

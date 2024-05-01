@@ -3,9 +3,9 @@
 _Instruções_
 
 ```
-Pessoal nossa atividade ponderada vai ser desenvolvida em diversas frentes e por partes. A primeira parte vai ser a construção da API. Existe aqui um único pré-requisito, ela precisa ser SINCRONA!!!. Mais sobre esse ponto no nosso próximo encontro.
+Pessoal nossa atividade ponderada vai ser a construção de uma API assíncrona de gerenciamento de tasks.
 
-O que vocês devem entregar, em um repositório do Github (até as 23h59 de hoje, dia 21/04/2024 - pessoal nesse ponto eu não vou ser flexível na entrega, pois o objetivo é que vocês consigam desenvolver em sala e entrega extendida é só para contemplar quem não conseguiu terminar em sala):
+O que vocês devem entregar, em um repositório do Github:
 
 Collections do Insomnia para testar a API
 YAML do OpenAPI (Swagger) para documentar a API
@@ -18,6 +18,11 @@ Obrigatóriamente ela deve ser uma API de grau de maturidade 2, ou seja, ela dev
 ## API de Gerenciamento de Tarefas
 
 Esta é uma API Flask desenvolvida para gerenciar tarefas com autenticação de usuários e controle de uma to-do list.
+
+> [!IMPORTANT]
+> A to-do list está sendo administrada em memória! Ou seja, ao reiniciar a aplicação, todos os dados serão perdidos.
+
+## Funcionamento
 
 ## Instalação
 
@@ -56,11 +61,11 @@ Você pode [seguir as instruções já informadas](../../README.md/#como-rodar) 
 python main.py
 ```
 
-Agora você pode acessar a API em [http://localhost:3000](http://localhost:3000).
+Agora você pode acessar a API em [http://localhost:3001](http://localhost:3001).
 
 ## Documentação da API
 
-Após iniciar a API, você pode acessar a documentação da API via Swagger UI pelo seguinte URL: [http://localhost:3000/docs](http://localhost:3000/docs).
+Após iniciar a API, você pode acessar a documentação da API via Swagger UI pelo seguinte URL: [http://localhost:3001/docs](http://localhost:3001/docs).
 
 Acesse este link para interagir com a API através da interface Swagger, onde você pode testar os endpoints diretamente.
 
@@ -84,7 +89,7 @@ A API consiste nos seguintes endpoints:
 Cada endpoint requer que o usuário esteja autenticado e passe o seu id no header 'Authorization'. Alguns endpoints exigem que o usuário seja um administrador (nesse caso, apenas `/create_user`).
 
 > [!NOTE]
-> Essa API foi construída com um argumento a mais no run do Flask, sendo o `threaded=False`, para que seja síncrona.
+> Essa API foi construída sem o argumento `threaded=False`, para que seja uma api assíncrona.
 
 ## Dockerização da API
 
