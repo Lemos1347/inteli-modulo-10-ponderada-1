@@ -24,6 +24,8 @@ Esta é uma API Flask desenvolvida para gerenciar tarefas com autenticação de 
 
 ## Funcionamento
 
+https://github.com/Lemos1347/inteli-modulo-10-ponderada-1/assets/99190347/759fc23f-732d-494d-8587-2ff60522be7d
+
 ## Instalação
 
 > [!NOTE]
