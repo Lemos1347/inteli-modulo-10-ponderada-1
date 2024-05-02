@@ -54,6 +54,8 @@ Você pode encontrar um vídeo demonstrando o funcionamento de cada API em suas 
 
 ## Comparação
 
+https://github.com/Lemos1347/inteli-modulo-10-ponderada-1/assets/99190347/0b9556a8-785d-4e7d-b233-6aa1f7384edc
+
 O teste de desempenho entre as APIs síncrona e assíncrona foi conduzido utilizando um script desenvolvido em Golang (caso queira testar basta executar o binário [test-servers](./src/test/test-servers) com a flag `-n` e seguido da quantidade de requisições simultâneas deseja fazer). O script é projetado para avaliar a performance dos servidores em resposta a diferentes quantidades de requisições simultâneas. Isso é feito através de uma flag de execução, "-n", que define o número de chamadas simultâneas a serem enviadas para os servidores.
 
 Os servidores testados são acessíveis através dos endereços localhost:3000 para o servidor síncrono e localhost:3001 para o assíncrono. Ambos os servidores foram avaliados na mesma rota, especificamente na operação de recuperar todas as tarefas associadas a um usuário ("get all tasks of a user").
