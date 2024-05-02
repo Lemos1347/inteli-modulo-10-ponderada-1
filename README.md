@@ -54,8 +54,18 @@ Você pode encontrar um vídeo demonstrando o funcionamento de cada API em suas 
 
 ## Comparação
 
+O teste de desempenho entre as APIs síncrona e assíncrona foi conduzido utilizando um script desenvolvido em Golang (caso queira testar basta executar o binário [test-servers](./src/test/test-servers) com a flag `-n` e seguido da quantidade de requisições simultâneas deseja fazer). O script é projetado para avaliar a performance dos servidores em resposta a diferentes quantidades de requisições simultâneas. Isso é feito através de uma flag de execução, "-n", que define o número de chamadas simultâneas a serem enviadas para os servidores.
+
+Os servidores testados são acessíveis através dos endereços localhost:3000 para o servidor síncrono e localhost:3001 para o assíncrono. Ambos os servidores foram avaliados na mesma rota, especificamente na operação de recuperar todas as tarefas associadas a um usuário ("get all tasks of a user").
+
+A metodologia do teste envolveu inicialmente o envio de uma única requisição a cada servidor para estabelecer uma linha de base para o tempo de resposta. Em todos os testes, notou-se que os tempos de resposta flutuam, mas as flutuações são geralmente pequenas, tanto para requisições individuais quanto para pequenos números de requisições simultâneas. Por exemplo, ao enviar quatro requisições simultâneas, o servidor síncrono respondeu mais rapidamente do que o assíncrono.
+
+No entanto, à medida que o número de requisições simultâneas aumentou exponencialmente, começou a surgir uma diferença significativa no desempenho dos dois servidores. Esse aumento nas requisições evidenciou a superioridade do servidor assíncrono em lidar com altas cargas, demonstrando uma clara vantagem em velocidade quando comparado ao servidor síncrono sob condições de maior demanda.
+
+Esse teste fornece uma comparação quantitativa entre as abordagens síncrona e assíncrona, sublinhando a importância de escolher a arquitetura adequada de servidor com base nas necessidades específicas de carga de trabalho e no comportamento esperado do sistema sob diferentes condições de uso.
+
 ## Conclusão
 
-Com base na análise realizada sobre o desempenho das APIs síncrona e assíncrona, é possível concluir que cada abordagem possui características distintas que influenciam diretamente a eficiência em diferentes cenários de uso. A API síncrona, operando com uma única thread, mostra-se eficaz para operações isoladas, apresentando um tempo de execução comparável ao da API assíncrona em chamadas individuais. Contudo, seu desempenho é significativamente limitado sob condições de múltiplas solicitações simultâneas, devido à sua incapacidade de processar chamadas concorrentemente.  
+Com base na análise realizada sobre o desempenho das APIs síncrona e assíncrona, é possível concluir que cada abordagem possui características distintas que influenciam diretamente a eficiência em diferentes cenários de uso. A API síncrona, operando com uma única thread, mostra-se eficaz para operações isoladas, apresentando um tempo de execução comparável ao da API assíncrona em chamadas individuais. Contudo, seu desempenho é significativamente limitado sob condições de múltiplas solicitações simultâneas, devido à sua incapacidade de processar chamadas concorrentemente.
 
 Por outro lado, a API assíncrona demonstra uma vantagem notável nesses cenários, graças à sua habilidade de gerenciar chamadas de forma concorrente. Isso não apenas reduz o tempo de espera para o processamento de cada chamada, mas também melhora a eficácia geral do sistema em condições de alta demanda.
