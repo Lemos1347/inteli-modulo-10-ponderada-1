@@ -64,8 +64,6 @@ A metodologia do teste envolveu inicialmente o envio de uma única requisição 
 
 No entanto, à medida que o número de requisições simultâneas aumentou exponencialmente, começou a surgir uma diferença significativa no desempenho dos dois servidores. Esse aumento nas requisições evidenciou a superioridade do servidor assíncrono em lidar com altas cargas, demonstrando uma clara vantagem em velocidade quando comparado ao servidor síncrono sob condições de maior demanda.
 
-Esse teste fornece uma comparação quantitativa entre as abordagens síncrona e assíncrona, sublinhando a importância de escolher a arquitetura adequada de servidor com base nas necessidades específicas de carga de trabalho e no comportamento esperado do sistema sob diferentes condições de uso.
-
 ## Conclusão
 
 Com base na análise realizada sobre o desempenho das APIs síncrona e assíncrona, é possível concluir que cada abordagem possui características distintas que influenciam diretamente a eficiência em diferentes cenários de uso. A API síncrona, operando com uma única thread, mostra-se eficaz para operações isoladas, apresentando um tempo de execução comparável ao da API assíncrona em chamadas individuais. Contudo, seu desempenho é significativamente limitado sob condições de múltiplas solicitações simultâneas, devido à sua incapacidade de processar chamadas concorrentemente.
